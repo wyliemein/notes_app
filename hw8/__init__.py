@@ -10,5 +10,5 @@ from . import controllers
 
 # optional parameters
 __version__ = '0.0.0'
-__author__ = 'you <you@example.com>'
-__license__ = 'anything you want'
+__author__ = 'gmein@ucsc.edu'
+__license__ = 'free to use'
