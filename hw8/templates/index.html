@@ -1,0 +1,55 @@
+[[extend 'layout.html']]
+
+<div id="vue-target">
+  <section class="section">
+    <button @click="add_note()" class="button is-primary">
+      <i class="fa fa-plus fa-fw"></i>
+    </button>
+    <div class="columns is-mobile is-multiline">
+      <div v-for="note in notes" style="padding: 10px 5px;">
+        <div class="column is-mobile">
+          <article :class="note.color" class="notification box" @mouseleave="do_save(note._idx)">
+            <div class="level">
+              <div class="level-left">
+                <div class="level-item">
+                  <p v-if="note.starred" style="color:yellow" class="fa fa-star fa-lg" @click="set_star(note._idx, false)"></p>
+                  <p v-else class="fa fa-star-o fa-lg level-item" style="color:yellow" @click="set_star(note._idx, true)"></p>
+                </div>
+              </div>
+              <div class="level-right">
+                <div class="level-item">
+                  <p v-if="note.deletable" @click="do_delete(note._idx)" class="button is-danger">Delete?</p>
+                  <p v-if="note.deletable" style="color:red" @click="cancel(note._idx)" class="button fa fa-times fa"></p>
+                  <p v-else @click="delete_note(note._idx)" class="fa fa-trash fa-lg" style="color: red;"></p>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 0px 0px 5px">
+              <textarea :class="note.color" @click="do_edit(note._idx)" v-if="!note.edit" v-model="note.title" class="textarea has-text-weight-bold has-fixed-size" rows=1 placeholder="Title" readonly></textarea>
+              <textarea :class="note.color" v-else v-model="note.title" class="textarea has-text-weight-bold has-fixed-size" rows=1 placeholder="Title" ></textarea>
+            </div>
+            <textarea :class="note.color" @click="do_edit(note._idx)" v-if="!note.edit" v-model="note.content" class="textarea" rows=6 placeholder="Text" readonly></textarea>
+            <textarea :class="note.color" v-else v-model="note.content" class="textarea" rows=6 placeholder="Text" ></textarea>
+            <div style="overflow: hidden; padding: 5px;">
+              <div class="foo green" @click="set_color(note._idx, 'green')"></div>
+              <div class="foo pink" @click="set_color(note._idx, 'pink')"></div>
+              <div class="foo purple" @click="set_color(note._idx, 'purple')"></div>   
+              <div class="foo light-purple" @click="set_color(note._idx, 'light-purple')"></div> 
+              <div class="foo lumber" @click="set_color(note._idx, 'lumber')"></div> 
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>  
+</div>
+
+[[block page_scripts]]
+<!-- Loads the index-specific js for Vue -->
+<script>
+  let notes_url = "[[=XML(notes_url)]]";
+  let delete_url = "[[=XML(delete_url)]]";
+  let author_name = "[[=XML(author_name)]]";
+</script>
+<script src="js/index.js"></script>
+[[end]]

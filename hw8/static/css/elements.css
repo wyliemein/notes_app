@@ -1,0 +1,53 @@
+.welcome {
+    margin-bottom: 10px;
+}
+
+.section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.input::-moz-placeholder,
+.textarea::-moz-placeholder {
+  color: rgba(54, 54, 54, 0.7);
+}
+.input::-webkit-input-placeholder,
+.textarea::-webkit-input-placeholder {
+  color: rgba(54, 54, 54, 0.7);
+}
+.input:-moz-placeholder,
+.textarea:-moz-placeholder {
+  color: rgba(54, 54, 54, 0.7);
+}
+.input:-ms-input-placeholder,
+.textarea:-ms-input-placeholder {
+  color: rgba(54, 54, 54, 0.7);
+}
+
+.foo {
+  float: right;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.green{
+  background: #AFDAC1;
+}
+
+.pink{
+  background : #F5B7B7;
+}
+
+.purple{
+  background : #957DAD;
+}
+
+.light-purple{
+  background: #E0BBE4;
+}
+
+.lumber{
+  background: #FFDFD3;
+}
